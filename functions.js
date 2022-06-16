@@ -124,6 +124,7 @@ export function makeStringArray(arr) {
     return arr.map(arr => (arr.name + arr.type));
        
 }
+//modified
 /*
 findByName('jumpy', petsArray)
 
