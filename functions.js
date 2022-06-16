@@ -18,7 +18,7 @@ OUTPUT:
 ]*/
 
 export function getDogs(arr) {
-    return [];
+    return arr.filter(pet => pet.type === 'dog');
 }
 
 /*
@@ -28,7 +28,7 @@ Output:
 */
 
 export function makeArrayOfNames(arr) {
-    return [];
+    return arr.map((pet) => pet.name);
 }
 
 /*
@@ -37,7 +37,14 @@ OUTPUT:
 */
 
 export function getNamesOfDogs(arr) {
-    return [];
+    const filterArr = arr.filter(pet => {
+        if(pet.type === 'dog') {
+            return pet;
+        }
+    });
+    const mapArr = filterArr.map(pet => pet.name);
+    return mapArr;
+
 }
 
 /*
@@ -47,7 +54,9 @@ Output:
 */
 
 export function makeReversedArrayOfTypes(arr) {
-    return [];
+    const mapArr = arr.map(pet => pet.type);
+    const reverseArr = mapArr.reverse();
+    return reverseArr;
 }
 
 /*
@@ -62,7 +71,13 @@ Output:
 */
 
 export function makeSpanishLanguageArray(arr) {
-    return [];
+    const mapArr = arr.map((pet => {
+        return {
+            nombre: pet.name,
+            tipo: pet.type
+        };
+    }));
+    return mapArr;
 }
 
 /*
@@ -76,7 +91,12 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-     return []
+    const newArr = arr.map((pet) => ({
+        name: pet.name,
+        isHungry: true,
+        type: pet.type
+    }));
+    return newArr;
 }
 
 /*
@@ -90,7 +110,10 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
+    arr.forEach(item => {
+        item.name = item.name.toUpperCase();
+    });
+    return arr;
 }
 
 
@@ -101,9 +124,9 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    return arr.map((pet) => pet.name + pet.type);
+       
 }
-
 /*
 findByName('jumpy', petsArray)
 
@@ -114,8 +137,9 @@ OUTPUT:
 */
 
 export function findByName(name, arr) {
-    return {};
+    return arr.find((pet) => pet.name === name);
 }
+
 
 /*
 Output:
@@ -140,7 +164,7 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    return arr.map(animal => [['name', animal.name], ['type', animal.type]]);
 }
 
 ////////////////////////////////////////////////////////
